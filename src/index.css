@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cairo: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    --font-amiri: 'Amiri', serif;
+    --font-tajawal: 'Tajawal', sans-serif;
+    --font-el-messiri: 'El Messiri', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+    --font-outfit: 'Outfit', sans-serif;
+  }
+}
+
+.font-cairo {
+  font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+  letter-spacing: normal !important;
+}
+
+.font-amiri {
+  font-family: 'Amiri', serif;
+  letter-spacing: normal !important;
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+  letter-spacing: normal !important;
+}
+
+.font-el-messiri {
+  font-family: 'El Messiri', sans-serif;
+  letter-spacing: normal !important;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Global Arabic text integrity rules: prevent character spacing that breaks cursive ligatures */
+[dir="rtl"], .font-cairo, .font-amiri, .font-tajawal, .font-el-messiri, body {
+  letter-spacing: normal !important;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars for editorial studio feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f0eb;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4cfbe;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8b19e;
+}
+
+/* Magazine page styling & Vector Print Engine */
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 0mm;
+  }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  html, body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: auto !important;
+  }
+  .no-print, header, nav, button, .app-nav-bar, .bg-stone-900 {
+    display: none !important;
+  }
+  #root > div:not(.print-magazine-root) {
+    display: none !important;
+  }
+  #print-magazine-root {
+    display: block !important;
+    position: static !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  .magazine-page {
+    page-break-after: always !important;
+    break-after: page !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Tahwas Presse - استوديو مجلة تحواس براس السياحية",
+  "description": "استوديو احترافي لتصميم وإخراج مجلة تحواس براس السياحية الجزائرية وتصديرها بصيغة PDF عالية الجودة مع دعم العربية والفرنسية والإنجليزية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
