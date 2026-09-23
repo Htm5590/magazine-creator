@@ -529,7 +529,7 @@ export const Step2Articles: React.FC<Step2ArticlesProps> = ({
                   المجلة جاهزة لاستقبال مقالاتك وتقاريرك الصحفية. أضف مقالك الأول بالضغط على الزر أدناه.
                 </p>
                 <button
-                  onClick={handleAddNewArticle}
+                  onClick={handleCreateNewArticle}
                   className="w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer mt-2"
                 >
                   <Plus className="w-4 h-4" />
@@ -740,7 +740,7 @@ export const Step2Articles: React.FC<Step2ArticlesProps> = ({
               </p>
               <div className="flex items-center justify-center gap-3 pt-2">
                 <button
-                  onClick={handleAddNewArticle}
+                  onClick={handleCreateNewArticle}
                   className="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
