@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Issue, Lang, SequenceItem } from './types';
-import { demoIssue } from './data/demoIssue';
+import { createEmptyIssue, demoIssue } from './data/demoIssue';
 import { Header } from './components/Header';
 import { Step1IssueSetup } from './components/Step1IssueSetup';
 import { Step2Articles } from './components/Step2Articles';
@@ -13,11 +13,11 @@ import { PageRenderer } from './components/PageRenderer';
 import { AISettingsModal } from './components/AISettingsModal';
 import { X, ChevronRight, ChevronLeft, Eye, Sparkles } from 'lucide-react';
 
-const STORAGE_KEY = 'tahwas_magazine_issue_v1';
-const SNAPSHOTS_KEY = 'tahwas_magazine_snapshots_v1';
+const STORAGE_KEY = 'tahwas_magazine_issue_prod_v1';
+const SNAPSHOTS_KEY = 'tahwas_magazine_snapshots_prod_v1';
 
 export default function App() {
-  // Load initial issue from localStorage or demoIssue
+  // Load initial issue from localStorage or start clean with zero demo articles
   const [issue, setIssue] = useState<Issue>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -25,9 +25,9 @@ export default function App() {
         return JSON.parse(saved);
       }
     } catch (e) {
-      console.warn('Could not read from localStorage, using demo issue.');
+      console.warn('Could not read from localStorage, creating clean issue.');
     }
-    return demoIssue;
+    return createEmptyIssue();
   });
 
   // Undo / Redo history

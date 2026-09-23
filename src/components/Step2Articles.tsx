@@ -519,11 +519,28 @@ export const Step2Articles: React.FC<Step2ArticlesProps> = ({
               );
             })}
 
-            {filteredArticles.length === 0 && (
+            {articles.length === 0 ? (
+              <div className="p-8 bg-white border-2 border-dashed border-stone-300 rounded-2xl text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
+                  <FileText className="w-6 h-6" />
+                </div>
+                <h4 className="font-bold text-stone-900 text-sm font-cairo">لا توجد مقالات مضافة بعد</h4>
+                <p className="text-xs text-stone-500 leading-relaxed max-w-xs mx-auto">
+                  المجلة جاهزة لاستقبال مقالاتك وتقاريرك الصحفية. أضف مقالك الأول بالضغط على الزر أدناه.
+                </p>
+                <button
+                  onClick={handleAddNewArticle}
+                  className="w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer mt-2"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>إضافة مقالك الأول الآن</span>
+                </button>
+              </div>
+            ) : filteredArticles.length === 0 ? (
               <div className="p-8 bg-white border border-stone-200 rounded-xl text-center text-xs text-stone-400">
                 لا توجد مقالات ضمن تصنيف "{selectedCategoryFilter}".
               </div>
-            )}
+            ) : null}
           </div>
         </div>
 
@@ -712,8 +729,24 @@ export const Step2Articles: React.FC<Step2ArticlesProps> = ({
               </div>
             </div>
           ) : (
-            <div className="bg-white rounded-2xl p-12 text-center text-stone-400 border border-stone-200">
-              اختر مقالاً من القائمة أو أضف مقالاً جديداً.
+            <div className="bg-white rounded-2xl p-10 text-center border border-stone-200/80 shadow-xs space-y-4">
+              <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mx-auto border border-amber-200/60">
+                <FileText className="w-8 h-8" />
+              </div>
+              <h3 className="font-bold text-stone-900 text-base font-cairo">ابدأ بإضافة مقالات وتحقيقات العدد</h3>
+              <p className="text-xs text-stone-500 max-w-md mx-auto leading-relaxed">
+                أدخل عنوان المقال، السرد التحريري، الصور المرافقة، وصندوق حقائق السفر السياحي.
+                يتم حساب التوزيع والصفحات تلقائياً بدقة طباعية عالية.
+              </p>
+              <div className="flex items-center justify-center gap-3 pt-2">
+                <button
+                  onClick={handleAddNewArticle}
+                  className="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>إضافة مقال جديد يدوياً</span>
+                </button>
+              </div>
             </div>
           )}
         </div>

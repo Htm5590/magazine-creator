@@ -560,16 +560,6 @@ export const createEmptyIssue = (): Issue => ({
       { role: 'رئيس التحرير', name: 'إدارة التحرير' },
     ],
   },
-  credits: {
-    publisher: 'دار تحواس براس للنشر والإعلام السياحي',
-    editorialTeam: [
-      { name: 'هيئة التحرير', role: 'الإشراف والإخراج الفني' },
-    ],
-    legalDeposit: 'الإيداع القانوني: 2026',
-    issn: 'ISSN 2716-8409',
-    contactEmail: 'contact@tahwas-presse.dz',
-    website: 'www.tahwas-presse.dz',
-  },
   articles: [], // Zero demo articles - user enters everything
   ads: [], // Zero demo ads
   includeAdsInIssue: false,
